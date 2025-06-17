@@ -1,8 +1,173 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Fill Out Survey";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@using (Html.BeginForm(actionName: "", controllerName: "", method: FormMethod.Post))
+{
+	<div class="space-between-personal">
+		<p>
+			Personal Details:
+		</p>
+
+		<div class="personal-inputs">
+			<div>
+				<label>Full Names</label>
+				<input type="text" />
+			</div>
+			<div>
+				<label>Email</label>
+				<input type="email" />
+			</div>
+			<div>
+				<label>Date of Birth</label>
+				<input type="text" />
+			</div>
+			<div>
+				<label>Contact Number</label>
+				<input type="text" />
+			</div>
+		</div>
+	</div>
+
+	<div class="space-between-food">
+		<p>
+			What is your favourite food?
+		</p>
+
+		<div class="space-between">
+			<div>
+				<label><input type="checkbox" /> Pizza</label>
+			</div>
+			<div>
+				<label><input type="checkbox" /> Pasta</label>
+			</div>
+			<div>
+				<label><input type="checkbox" /> Pap and Wors</label>
+			</div>
+			<div>
+				<label><input type="checkbox" /> Other</label>
+			</div>
+		</div>
+	</div>
+
+	<div class="space-between-table">
+		<p>Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree."</p>
+		<div>
+			<table>
+				<thead>
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">Strongly Agree</th>
+						<th scope="col">Agree</th>
+						<th scope="col">Neutral</th>
+						<th scope="col">Disagree</th>
+						<th scope="col">Strongly Disagree</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">I like to watch movies</th>
+						<td><input type="radio" name="movie" /></td>
+						<td><input type="radio" name="movie" /></td>
+						<td><input type="radio" name="movie" /></td>
+						<td><input type="radio" name="movie" /></td>
+						<td><input type="radio" name="movie" /></td>
+					</tr>
+					<tr>
+						<th scope="row">I like to listen to radio</th>
+						<td><input type="radio" name="radio-station" /></td>
+						<td><input type="radio" name="radio-station" /></td>
+						<td><input type="radio" name="radio-station" /></td>
+						<td><input type="radio" name="radio-station" /></td>
+						<td><input type="radio" name="radio-station" /></td>
+					</tr>
+					<tr>
+						<th scope="row">I like to eat out</th>
+						<td><input type="radio" name="eat-out" /></td>
+						<td><input type="radio" name="eat-out" /></td>
+						<td><input type="radio" name="eat-out" /></td>
+						<td><input type="radio" name="eat-out" /></td>
+						<td><input type="radio" name="eat-out" /></td>
+					</tr>
+					<tr>
+						<th scope="row">I like to watch TV</th>
+						<td><input type="radio" name="tv" /></td>
+						<td><input type="radio" name="tv" /></td>
+						<td><input type="radio" name="tv" /></td>
+						<td><input type="radio" name="tv" /></td>
+						<td><input type="radio" name="tv" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="submit-button">
+		<button class="btn btn-success" type="submit">Submit</button>
+	</div>
+}
+
+<style>
+
+	/* SPACING */
+	.space-between-personal {
+		display: flex;
+		gap: 20%;
+		margin-bottom: 50px;
+	}
+
+	.space-between-food {
+		display: flex;
+		gap: 10%;
+		margin-bottom: 50px;
+	}
+
+	.space-between-table {
+		margin-bottom: 50px;
+	}
+
+	.space-between {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+	}
+
+	.submit-button {
+		text-align: center
+	}
+
+	/* LABELS */
+	.space-between-personal label {
+		display: block; /* Makes the label take its own line */
+		margin-bottom: 2px; /* Space between the label and the input */
+	}
+
+	.personal-inputs div {
+		margin-bottom: 2px;
+	}
+
+
+	/* TABLE STYLING */
+	table {
+		border-collapse: collapse;
+		border: 2px solid rgb(140 140 140);
+		font-family: sans-serif;
+		font-size: 0.8rem;
+		letter-spacing: 1px;
+		width: 80%;
+	}
+
+	th,
+	td {
+		border: 1px solid rgb(160 160 160);
+		padding: 8px 10px;
+	}
+
+	thead tr th {
+		text-align: center;
+	}
+
+	tbody tr td {
+		text-align: center;
+	}
+</style>
