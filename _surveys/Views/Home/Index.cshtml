@@ -12,19 +12,19 @@
 		<div class="personal-inputs">
 			<div>
 				<label>Full Names</label>
-				<input type="text" />
+				<input type="text" required />
 			</div>
 			<div>
 				<label>Email</label>
-				<input type="email" />
+				<input type="email" required />
 			</div>
 			<div>
 				<label>Date of Birth</label>
-				<input type="text" />
+				<input type="date" required />
 			</div>
 			<div>
 				<label>Contact Number</label>
-				<input type="text" />
+				<input type="text" required />
 			</div>
 		</div>
 	</div>
@@ -36,16 +36,16 @@
 
 		<div class="space-between">
 			<div>
-				<label><input type="checkbox" /> Pizza</label>
+				<label><input type="checkbox" name="pizza" /> Pizza</label>
 			</div>
 			<div>
-				<label><input type="checkbox" /> Pasta</label>
+				<label><input type="checkbox" name="pasta" /> Pasta</label>
 			</div>
 			<div>
-				<label><input type="checkbox" /> Pap and Wors</label>
+				<label><input type="checkbox" name="pap and wors" /> Pap and Wors</label>
 			</div>
 			<div>
-				<label><input type="checkbox" /> Other</label>
+				<label><input type="checkbox" name="other" /> Other</label>
 			</div>
 		</div>
 	</div>
@@ -67,35 +67,35 @@
 				<tbody>
 					<tr>
 						<th scope="row">I like to watch movies</th>
-						<td><input type="radio" name="movie" /></td>
-						<td><input type="radio" name="movie" /></td>
-						<td><input type="radio" name="movie" /></td>
-						<td><input type="radio" name="movie" /></td>
-						<td><input type="radio" name="movie" /></td>
+						<td><input type="radio" name="movie" value="1" /></td>
+						<td><input type="radio" name="movie" value="2" /></td>
+						<td><input type="radio" name="movie" value="3" /></td>
+						<td><input type="radio" name="movie" value="4" /></td>
+						<td><input type="radio" name="movie" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to listen to radio</th>
-						<td><input type="radio" name="radio-station" /></td>
-						<td><input type="radio" name="radio-station" /></td>
-						<td><input type="radio" name="radio-station" /></td>
-						<td><input type="radio" name="radio-station" /></td>
-						<td><input type="radio" name="radio-station" /></td>
+						<td><input type="radio" name="radio-station" value="1" /></td>
+						<td><input type="radio" name="radio-station" value="2" /></td>
+						<td><input type="radio" name="radio-station" value="3" /></td>
+						<td><input type="radio" name="radio-station" value="4" /></td>
+						<td><input type="radio" name="radio-station" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to eat out</th>
-						<td><input type="radio" name="eat-out" /></td>
-						<td><input type="radio" name="eat-out" /></td>
-						<td><input type="radio" name="eat-out" /></td>
-						<td><input type="radio" name="eat-out" /></td>
-						<td><input type="radio" name="eat-out" /></td>
+						<td><input type="radio" name="eat-out" value="1" /></td>
+						<td><input type="radio" name="eat-out" value="2" /></td>
+						<td><input type="radio" name="eat-out" value="3" /></td>
+						<td><input type="radio" name="eat-out" value="4" /></td>
+						<td><input type="radio" name="eat-out" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to watch TV</th>
-						<td><input type="radio" name="tv" /></td>
-						<td><input type="radio" name="tv" /></td>
-						<td><input type="radio" name="tv" /></td>
-						<td><input type="radio" name="tv" /></td>
-						<td><input type="radio" name="tv" /></td>
+						<td><input type="radio" name="tv" value="1" /></td>
+						<td><input type="radio" name="tv" value="2" /></td>
+						<td><input type="radio" name="tv" value="3" /></td>
+						<td><input type="radio" name="tv" value="4" /></td>
+						<td><input type="radio" name="tv" value="5" /></td>
 					</tr>
 				</tbody>
 			</table>
@@ -144,6 +144,10 @@
 
 	.personal-inputs div {
 		margin-bottom: 2px;
+	}
+
+	.personal-inputs input {
+		width: 200px;
 	}
 
 
