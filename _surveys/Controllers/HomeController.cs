@@ -1,6 +1,5 @@
 using _surveys.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace _surveys.Controllers
 {
@@ -18,10 +17,11 @@ namespace _surveys.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult Index(Survey model)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+
     }
 }
