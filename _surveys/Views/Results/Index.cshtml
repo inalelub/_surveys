@@ -12,7 +12,6 @@
 	var youngPerson = TempData["YoungestPerson"];
 	TempData.Keep("youngPerson");
 
-
 	var lovePizza = TempData["LovePizza"];
 	TempData.Keep("lovePizza");
 	var lovePasta = TempData["LovePasta"];
@@ -20,18 +19,17 @@
 	var lovePapWors = TempData["LovePapWors"];
 	TempData.Keep("lovePapWors");
 
-
 	var averageMovies = TempData["AverageMovies"];
 	TempData.Keep("averageMovies");
 	var averageRadio = TempData["AverageRadio"];
 	TempData.Keep("averageRadio");
 	var averageEatOut = TempData["AverageEatOut"];
 	TempData.Keep("averageEatOut");
-	var averageTV = TempData["AverageTV"];
-	TempData.Keep("averageTV");
+	var averageTv = TempData["AverageTV"];
+	TempData.Keep("averageTv");
 }
 
-@if (Model is null || Model.Count <= 0)
+@if (Model.Count <= 0)
 {
 	<div style="background-color: #cce6ff; color: red; font-weight: bold; padding-top: 15px; padding-left: 10px; padding-bottom: 8px; padding-right: 10px; width: 700px; text-align: center">
 		<p>No Surveys Available</p>
@@ -84,7 +82,7 @@ else
 				<p>@averageMovies</p>
 				<p>@averageRadio</p>
 				<p>@averageEatOut</p>
-				<p>@averageTV</p>
+				<p>@averageTv</p>
 			</div>
 		</div>
 	</div>
