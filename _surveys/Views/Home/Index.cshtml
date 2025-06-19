@@ -2,9 +2,11 @@
 
 @{
 	ViewData["Title"] = "Fill Out Survey";
+
+	var availableFoods = new List<string> { "Pizza", "Pasta", "Pap and Wors", "Other"};
 }
 
-@using (Html.BeginForm(actionName: "Index", controllerName: "Home", method: FormMethod.Post))
+@using (Html.BeginForm(actionName: "Update", controllerName: "Home", method: FormMethod.Post))
 {
 	<div class="space-between-personal">
 		<p>
@@ -14,22 +16,22 @@
 		<div class="personal-inputs">
 			<div>
 				<label>Full Names</label>
-				<input type="text" asp-for="FullNames" required />
+				<input type="text" name="fullname" asp-for="FullNames" required />
 				<span asp-validation-for="FullNames"></span>
 			</div>
 			<div>
 				<label>Email</label>
-				<input type="email" asp-for="EmailAddress" required />
+				<input type="email" name="email" asp-for="EmailAddress" required />
 				<span asp-validation-for="EmailAddress"></span>
 			</div>
 			<div>
 				<label>Date of Birth</label>
-				<input type="date" max="2145-12-31" asp-for="DOB" required />
+				<input type="date" max="2145-12-31" name="dob" asp-for="DOB" required />
 				<span asp-validation-for="DOB"></span>
 			</div>
 			<div>
 				<label>Contact Number</label>
-				<input type="text" asp-for="ContactNumber" required />
+				<input type="text" name="contactno" asp-for="ContactNumber" required />
 				<span asp-validation-for="ContactNumber"></span>
 			</div>
 		</div>
@@ -41,18 +43,17 @@
 		</p>
 
 		<div class="space-between">
-			<div>
-				<label><input type="checkbox" name="pizza" asp-for="FavouriteFood" /> Pizza</label>
-			</div>
-			<div>
-				<label><input type="checkbox" name="pasta" asp-for="FavouriteFood" /> Pasta</label>
-			</div>
-			<div>
-				<label><input type="checkbox" name="pap and wors" asp-for="FavouriteFood" /> Pap and Wors</label>
-			</div>
-			<div>
-				<label><input type="checkbox" name="other" asp-for="FavouriteFood" /> Other</label>
-			</div>
+			@foreach (var food in availableFoods)
+			{
+				<div>
+					<label>
+						<input type="checkbox"
+						       name="FavouriteFood" @* All checkboxes for this list must have the same name *@
+						       value="@food" @* The value to send if checked *@
+						/> @food
+					</label>
+				</div>
+			}
 		</div>
 	</div>
 
@@ -73,35 +74,35 @@
 				<tbody>
 					<tr>
 						<th scope="row">I like to watch movies</th>
-						<td><input type="radio" name="movie" value="1" asp-for="ScaleMovie" /></td>
-						<td><input type="radio" name="movie" value="2" asp-for="ScaleMovie" /></td>
-						<td><input type="radio" name="movie" value="3" asp-for="ScaleMovie" /></td>
-						<td><input type="radio" name="movie" value="4" asp-for="ScaleMovie" /></td>
-						<td><input type="radio" name="movie" value="5" asp-for="ScaleMovie" /></td>
+						<td><input type="radio" name="movie" value="1" /></td>
+						<td><input type="radio" name="movie" value="2" /></td>
+						<td><input type="radio" name="movie" value="3" /></td>
+						<td><input type="radio" name="movie" value="4" /></td>
+						<td><input type="radio" name="movie" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to listen to radio</th>
-						<td><input type="radio" name="radio-station" value="1" asp-for="ScaleRadio" /></td>
-						<td><input type="radio" name="radio-station" value="2" asp-for="ScaleRadio" /></td>
-						<td><input type="radio" name="radio-station" value="3" asp-for="ScaleRadio" /></td>
-						<td><input type="radio" name="radio-station" value="4" asp-for="ScaleRadio" /></td>
-						<td><input type="radio" name="radio-station" value="5" asp-for="ScaleRadio" /></td>
+						<td><input type="radio" name="radiostation" value="1" /></td>
+						<td><input type="radio" name="radiostation" value="2" /></td>
+						<td><input type="radio" name="radiostation" value="3" /></td>
+						<td><input type="radio" name="radiostation" value="4" /></td>
+						<td><input type="radio" name="radiostation" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to eat out</th>
-						<td><input type="radio" name="eat-out" value="1" asp-for="ScaleEatOut" /></td>
-						<td><input type="radio" name="eat-out" value="2" asp-for="ScaleEatOut" /></td>
-						<td><input type="radio" name="eat-out" value="3" asp-for="ScaleEatOut" /></td>
-						<td><input type="radio" name="eat-out" value="4" asp-for="ScaleEatOut" /></td>
-						<td><input type="radio" name="eat-out" value="5" asp-for="ScaleEatOut" /></td>
+						<td><input type="radio" name="eatout" value="1" /></td>
+						<td><input type="radio" name="eatout" value="2" /></td>
+						<td><input type="radio" name="eatout" value="3" /></td>
+						<td><input type="radio" name="eatout" value="4" /></td>
+						<td><input type="radio" name="eatout" value="5" /></td>
 					</tr>
 					<tr>
 						<th scope="row">I like to watch TV</th>
-						<td><input type="radio" name="tv" value="1" asp-for="ScaleTV" /></td>
-						<td><input type="radio" name="tv" value="2" asp-for="ScaleTV" /></td>
-						<td><input type="radio" name="tv" value="3" asp-for="ScaleTV" /></td>
-						<td><input type="radio" name="tv" value="4" asp-for="ScaleTV" /></td>
-						<td><input type="radio" name="tv" value="5" asp-for="ScaleTV" /></td>
+						<td><input type="radio" name="tv" value="1" /></td>
+						<td><input type="radio" name="tv" value="2" /></td>
+						<td><input type="radio" name="tv" value="3" /></td>
+						<td><input type="radio" name="tv" value="4" /></td>
+						<td><input type="radio" name="tv" value="5" /></td>
 					</tr>
 				</tbody>
 			</table>

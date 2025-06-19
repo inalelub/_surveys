@@ -20,9 +20,8 @@ namespace _surveys.Models
         [Required(ErrorMessage = "Your phone number is required")]
         public string ContactNumber { get; set; }
 
-        [Required]
-        public List<string> FavouriteFood { get; set; } = new();
-
+        [Required] public List<string> FavouriteFood { get; set; } = [];
+        
         [Required]
         public string ScaleMovie { get; set; }
 
