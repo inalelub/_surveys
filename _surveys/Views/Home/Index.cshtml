@@ -6,6 +6,15 @@
 	var availableFoods = new List<string> { "Pizza", "Pasta", "Pap and Wors", "Other"};
 }
 
+<div>
+	@if (TempData["Success"] is not null)
+	{
+		<div id="success-banner" class="alert alert-success success">
+			<p class="">@TempData["Success"]</p>
+		</div>
+	}
+</div>
+
 @using (Html.BeginForm(actionName: "Update", controllerName: "Home", method: FormMethod.Post))
 {
 	<div class="space-between-personal">
@@ -181,4 +190,57 @@
 	tbody tr td {
 		text-align: center;
 	}
+	
+	/* DIV SUCCESS */
+	
+	.success {
+		text-align: center; margin-bottom: 20px;
+		
+		/*background-color: green; */
+		/*color: black; */
+		/*font-weight: bold; */
+		/*padding-top: 15px; */
+		/*padding-left: 10px; */
+		/*padding-bottom: 8px; */
+		/*padding-right: 10px; */
+		/*width: 700px; */
+		/*text-align: center	*/
+	}
 </style>
+
+@section Scripts {
+	<script>
+        $(document).ready(function () {
+            // Check if the success banner exists
+            var successBanner = $('#success-banner');
+            if (successBanner.length) {
+                // If it exists, fade it out after 5000 milliseconds (5 seconds)
+                setTimeout(function () {
+                    successBanner.fadeOut('slow', function() {
+                        // Optional: Remove the element from the DOM after fading out
+                        $(this).remove();
+                    });
+                }, 5000); // 5000 milliseconds = 5 seconds
+            }
+        });
+    </script>
+	
+	<script>
+		document.querySelector('form').addEventListener('submit', function (e) {
+			const dobInput = document.querySelector('input[name="dob"]');
+			const dob = new Date(dobInput.value);
+			const today = new Date();
+			let age = today.getFullYear() - dob.getFullYear();
+			const m = today.getMonth() - dob.getMonth();
+			if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+				age--;
+			}
+
+			if (age < 5 || age > 120) {
+				e.preventDefault(); // Stop form submission
+				alert("Age must be between 5 and 120.");
+				return false;
+			}
+		});
+	</script>
+}

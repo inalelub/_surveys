@@ -38,6 +38,8 @@ namespace _surveys.Controllers
             
             _db.Surveys.Add(srv);
             _db.SaveChanges();
+
+            TempData["Success"] = "Survey Added Successfully";
             return RedirectToAction("Index");
         }
 

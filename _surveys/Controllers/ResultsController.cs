@@ -148,7 +148,10 @@ namespace _surveys.Controllers
                 return 0.ToString("F1");
             }
 
-            var pizzaLoversCount = _db.Surveys.Count(s => s.FavouriteFood.Any(food => food.Equals("Pizza", StringComparison.OrdinalIgnoreCase)));
+            var surveysWithFood = _db.Surveys.Select(s => s.FavouriteFood).ToList();
+            
+            int pizzaLoversCount = surveysWithFood
+                .Count(foodList => foodList.Any(food => food.Equals("Pizza", StringComparison.OrdinalIgnoreCase)));
 
             // Calculate the percentage
             var percentage = (double)pizzaLoversCount / totalSurveys * 100;
@@ -170,7 +173,10 @@ namespace _surveys.Controllers
                 return 0.ToString("F1");
             }
 
-            var pastaLoversCount = _db.Surveys.Count(s => s.FavouriteFood.Any(food => food.Equals("Pasta", StringComparison.OrdinalIgnoreCase)));
+            var surveysWithFood = _db.Surveys.Select(s => s.FavouriteFood).ToList();
+            
+            int pastaLoversCount = surveysWithFood
+                .Count(foodList => foodList.Any(food => food.Equals("Pasta", StringComparison.OrdinalIgnoreCase)));
 
             var percentage = (double)pastaLoversCount / totalSurveys * 100;
 
@@ -190,7 +196,10 @@ namespace _surveys.Controllers
                 return 0.ToString("F1");
             }
 
-            var papWorsLoversCount = _db.Surveys.Count(s => s.FavouriteFood.Any(food => food.Equals("Pap and Wors", StringComparison.OrdinalIgnoreCase)));
+            var surveysWithFood = _db.Surveys.Select(s => s.FavouriteFood).ToList();
+            
+            int papWorsLoversCount = surveysWithFood
+                .Count(foodList => foodList.Any(food => food.Equals("Pasta", StringComparison.OrdinalIgnoreCase)));
 
             var percentage = (double)papWorsLoversCount / totalSurveys * 100;
 
